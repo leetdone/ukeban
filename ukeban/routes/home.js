@@ -4,11 +4,17 @@ const router = express.Router()
 const routerHandler = require('../routerHandler/home')
 
 /* GET users listing. */
-router.get('/', routerHandler.home)
+
+router.get('', routerHandler.home)
+router.get('/product', routerHandler.product)
+router.get('/personal', routerHandler.personal)
+
 //redirect to wechat website, but need an address, in ukeban.com no address is required 
-router.get('/wechat', (req, res, next) =>{
-    res.redirect('https://mp.weixin.qq.com/s/LKPaW-WavdcwhTTTChl3sA')
-});
+// router.get('/wechat', (req, res, next) =>{
+//     res.redirect('https://mp.weixin.qq.com/s/LKPaW-WavdcwhTTTChl3sA')
+// });
+
+module.exports = router
 /* 
 use router.get to create router to 
 https://www.ukeban.com/#/product
@@ -22,4 +28,4 @@ https://www.ukeban.com/#/helpcenter
 //build API to interact with frontend?
 //same https, different pages
 //产品介绍，关于我们 404 at the bottom
-module.exports = router
+
